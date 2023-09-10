@@ -1,7 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Qwitcher+Grypen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script&family=Roboto:wght@100&display=swap");
 a {
   text-decoration: none;
+}
+
+body {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #header {
@@ -9,10 +14,10 @@ a {
   top: 0;
   left: 0;
   position: fixed;
+  z-index: 999999;
 }
 
 .top-menu {
-  width: 100%;
   background-color: #e8f0f2;
 }
 
@@ -36,6 +41,19 @@ a {
   text-transform: uppercase;
 }
 
+.nav-link,
+.dropdown-item {
+  color: black;
+}
+
+.nav-link:hover {
+  color: red;
+}
+
+.dropdown-item:hover {
+  color: red;
+}
+
 .dropdown-menu {
   height: 300px;
   position: absolute;
@@ -48,7 +66,7 @@ a {
 }
 
 .dropdown-item {
-  transition: all 1s ease-in;
+  transition: all 0.3s ease-in;
   border-bottom: 1px solid grey;
   height: 50px;
 }
@@ -70,11 +88,13 @@ a {
 
 .banner-text h2 {
   font-size: 45px;
+  font-family: "Anton", sans-serif;
 }
 
 .banner-text p {
   color: #777777;
-  font-family: "Merriweather", serif;
+  font-family: "Dancing Script", cursive;
+  font-size: 20px;
 }
 
 .banner-img {
@@ -173,11 +193,13 @@ a {
 .featured-products-title h4 {
   font-size: 30px;
   color: black;
+  font-family: "Anton", sans-serif;
 }
 
 .featured-products-title p {
   font-size: 18px;
   color: #777777;
+  font-family: "Dancing Script", cursive;
 }
 
 .featured-products-item {
@@ -214,13 +236,12 @@ a {
 .featured-products-item:hover .featured-products-item-icons {
   visibility: visible;
   top: 100px;
-  left: 75%;
+  left: 80%;
   display: flex;
   flex-direction: column;
 }
 
-.latest-products .fa-cart-shopping,
-.latest-products .fa-magnifying-glass {
+.featured-products-item-icons .fa-heart {
   width: 30px;
   height: 30px;
   text-align: center;
@@ -230,25 +251,40 @@ a {
   color: black;
   background-color: white;
   margin-bottom: 10px;
+  transition: all 1s ease;
 }
 
-.latest-products .fa-cart-shopping:hover {
-  color: white;
-  background-color: red;
-}
-
-.latest-products .fa-magnifying-glass:hover {
-  color: white;
-  background-color: red;
-}
-
-.latest-products .fa-heart:hover {
-  color: white;
-  background-color: red;
-}
-
-.latest-product {
+.featured-products-item-icons .fa-cart-shopping {
+  width: 30px;
+  height: 30px;
   text-align: center;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: black;
+  background-color: white;
+  margin-bottom: 10px;
+  transition: all 1s ease;
+}
+
+.featured-products-item-icons .fa-heart:hover {
+  visibility: visible;
+  top: 100px;
+  left: 80%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background: red;
+}
+
+.featured-products-item:hover .fa-cart-shopping:hover {
+  visibility: visible;
+  top: 100px;
+  left: 80%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background: red;
 }
 
 .time-section {
@@ -264,11 +300,15 @@ a {
 
 .time-title h4 {
   font-size: 30px;
+  color: black;
+  font-family: "Anton", sans-serif;
 }
 
 .time-title p {
-  margin-bottom: 40px;
+  font-size: 18px;
   color: #777777;
+  font-family: "Dancing Script", cursive;
+  margin-bottom: 30px;
 }
 
 .time-title a {
@@ -307,7 +347,7 @@ a {
 }
 
 .time-details-des:last-child {
-  margin-right: 20px;
+  margin-right: 0px;
 }
 
 .time-details p {
@@ -326,10 +366,14 @@ a {
 
 .latest-products-title h4 {
   font-size: 30px;
+  color: black;
+  font-family: "Anton", sans-serif;
 }
 
 .latest-products-title p {
+  font-size: 18px;
   color: #777777;
+  font-family: "Dancing Script", cursive;
 }
 
 .list-products-item {
@@ -368,6 +412,39 @@ a {
   text-align: center;
 }
 
+.latest-products .fa-cart-shopping,
+.latest-products .fa-heart,
+.latest-products .fa-magnifying-glass {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: black;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.latest-products .fa-cart-shopping:hover {
+  color: white;
+  background-color: red;
+}
+
+.latest-products .fa-magnifying-glass:hover {
+  color: white;
+  background-color: red;
+}
+
+.latest-products .fa-heart:hover {
+  color: white;
+  background-color: red;
+}
+
+.latest-product {
+  text-align: center;
+}
+
 .top-brands {
   margin-top: 20px;
   background-color: #e8f0f2;
@@ -382,10 +459,14 @@ a {
 
 .top-brands-title h4 {
   font-size: 30px;
+  color: black;
+  font-family: "Anton", sans-serif;
 }
 
 .top-brands-title p {
+  font-size: 18px;
   color: #777777;
+  font-family: "Dancing Script", cursive;
 }
 
 .top-brands-inner {
@@ -413,10 +494,14 @@ a {
 
 .most-searched-products-title h4 {
   font-size: 30px;
+  color: black;
+  font-family: "Anton", sans-serif;
 }
 
 .most-searched-products-title p {
+  font-size: 18px;
   color: #777777;
+  font-family: "Dancing Script", cursive;
 }
 
 .most-searched-products-item-img {
@@ -451,4 +536,85 @@ a {
 
 .most-searched {
   text-align: center;
+}
+
+.footer-section {
+  background-color: #e8f0f2;
+  padding-top: 50px;
+  padding-bottom: 80px;
+}
+
+.footer-item-title {
+  padding-bottom: 15px;
+}
+
+.insta-item li {
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+.footer-section .button {
+  background-color: red;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border: 1px solid;
+}
+
+.footer-bottom {
+  padding-top: 40px;
+}
+
+.footer-bottom p {
+  text-align: center;
+}
+
+.footer-item .menu-social {
+  margin-left: -20px;
+}
+
+@media only screen and (max-device-width: 767px) {
+  #main {
+    margin-top: 100px;
+  }
+  .top-menu {
+    display: none;
+  }
+  .hot-deals {
+    margin-bottom: 30px;
+  }
+  .hot-deals-item-text h4 {
+    font-size: 20px;
+    margin-left: 30px;
+  }
+  .hot-deals-item-text a {
+    margin-left: 30px;
+    bottom: 25px;
+  }
+  .featured-products-section {
+    margin-bottom: 50px;
+  }
+  .time-section {
+    padding-bottom: 40px;
+  }
+  .time-details-part {
+    width: 100%;
+  }
+}
+.latest-products {
+  margin-bottom: 60px;
+}
+
+.top-brands {
+  margin-bottom: 60px;
+}
+
+.top-brands-inner {
+  padding-left: 0;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .hot-deals-item-text {
+    left: 100px;
+  }
 }/*# sourceMappingURL=main.css.map */

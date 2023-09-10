@@ -8,17 +8,23 @@ a {
 
 }
 
+body {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 // HEADER
 #header {
     width: 100%;
     top: 0;
     left: 0;
-    position: fixed;;
+    position: fixed;
+    z-index: 999999;
 }
 
 
 .top-menu {
-    width: 100%;
+
     background-color: $background-color-main;
 }
 
@@ -41,7 +47,21 @@ a {
 
 .nav-item {
     text-transform: uppercase;
+   
 
+}
+
+.nav-link,
+.dropdown-item {
+    color: black;
+}
+
+.nav-link:hover {
+    color: red;
+}
+
+.dropdown-item:hover {
+    color: red;
 }
 
 .dropdown-menu {
@@ -56,7 +76,7 @@ a {
 }
 
 .dropdown-item {
-    transition: all 1s ease-in;
+    transition: all 0.3s ease-in;
     border-bottom: 1px solid grey;
     height: 50px;
 }
@@ -65,8 +85,12 @@ a {
     visibility: visible;
 }
 
+
 // MAIN
-#main {margin-top:150px;}
+#main {
+    margin-top: 150px;
+}
+
 // BANNER
 .home-banner {
     padding-top: 100px;
@@ -77,11 +101,13 @@ a {
 
 .banner-text h2 {
     font-size: 45px;
+     @include font-main;
 }
 
 .banner-text p {
     color: $color-main;
-    @include font-main;
+    @include font-sub;
+    font-size: 20px;
 }
 
 .banner-img {
@@ -173,6 +199,7 @@ a {
 
 .featured-products-title {
     @include main-title;
+    
 }
 
 .featured-products-item img {
@@ -181,10 +208,12 @@ a {
 
 .featured-products-title h4 {
     @include main-title-h4;
+    @include font-main;
 }
 
 .featured-products-title p {
     @include main-title-p;
+    @include font-sub;
 }
 
 .featured-products-item {
@@ -215,41 +244,36 @@ a {
 }
 
 .featured-products-item:hover .featured-products-item-icons {
-    visibility: visible;
-    top: 100px;
-    left: 75%;
-    display: flex;
-    flex-direction: column;
+    @include product-icons-hover;
 }
 
-.latest-products .fa-cart-shopping,
-.latest-products .fa-magnifying-glass {
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    padding: 5px;
-    border: 1px solid white;
-    border-radius: 3px;
-    color: black;
-    background-color: white;
-    margin-bottom: 10px;
+.featured-products-item-icons .fa-heart {
+    @include single-icon;
+    transition: all 1s ease;
+
 }
 
-.latest-products .fa-cart-shopping:hover {
+.featured-products-item-icons .fa-cart-shopping {
+    @include single-icon;
+    transition: all 1s ease;
+
+}
+
+.featured-products-item-icons .fa-heart:hover {
+    @include product-icons-hover;
     color: white;
-    background-color: red;
+    background: red;
 }
 
-.latest-products .fa-magnifying-glass:hover {
+.featured-products-item:hover .fa-cart-shopping:hover {
+    @include product-icons-hover;
     color: white;
-    background-color: red;
+    background: red;
 }
 
-.latest-products .fa-heart:hover {
-    color: white;
-    background-color: red;
-}
-.latest-product {text-align:center;}
+
+
+
 
 // TIME-SECTION
 .time-section {
@@ -264,17 +288,19 @@ a {
 }
 
 .time-title h4 {
-    font-size: $font-size-h4;
+    @include main-title-h4;
+    @include font-main;
 }
 
 .time-title p {
-    margin-bottom: 40px;
-    color: $color-main;
+    @include main-title-p;
+    @include font-sub;
+    margin-bottom:30px;
 }
 
 .time-title a {
     padding: 15px 25px;
-    
+
     background-color: red;
     color: white;
     border: 1px solid red;
@@ -309,7 +335,7 @@ a {
 }
 
 .time-details-des:last-child {
-    margin-right: 20px;
+    margin-right: 0px;
 }
 
 .time-details p {
@@ -328,11 +354,13 @@ a {
 }
 
 .latest-products-title h4 {
-    font-size: $font-size-h4;
+    @include main-title-h4;
+    @include font-main;
 }
 
 .latest-products-title p {
-    color: $color-main;
+    @include main-title-p;
+    @include font-sub;
 }
 
 .list-products-item {
@@ -340,19 +368,11 @@ a {
 }
 
 .list-products-item-icons {
-    position: absolute;
-    top: 100px;
-    left: 90%;
-    visibility: hidden;
-    transition: all 1s ease;
+    @include product-icons;
 }
 
 .list-products-item:hover .list-products-item-icons {
-    visibility: visible;
-    top: 100px;
-    left: 80%;
-    display: flex;
-    flex-direction: column;
+    @include product-icons-hover;
 }
 
 .list-products-item h4 {
@@ -371,6 +391,31 @@ a {
     text-align: center;
 }
 
+
+.latest-products .fa-cart-shopping,
+.latest-products .fa-heart,
+.latest-products .fa-magnifying-glass {
+    @include single-icon;
+}
+
+.latest-products .fa-cart-shopping:hover {
+    color: white;
+    background-color: red;
+}
+
+.latest-products .fa-magnifying-glass:hover {
+    color: white;
+    background-color: red;
+}
+
+.latest-products .fa-heart:hover {
+    color: white;
+    background-color: red;
+}
+
+.latest-product {
+    text-align: center;
+}
 //TOP BRANDS
 .top-brands {
     margin-top: 20px;
@@ -385,11 +430,13 @@ a {
 }
 
 .top-brands-title h4 {
-    font-size: $font-size-h4;
+    @include main-title-h4;
+    @include font-main;
 }
 
 .top-brands-title p {
-    color: $color-main
+    @include main-title-p;
+    @include font-sub;
 }
 
 .top-brands-inner {
@@ -417,11 +464,13 @@ a {
 }
 
 .most-searched-products-title h4 {
-    font-size: $font-size-h4;
+    @include main-title-h4;
+    @include font-main;
 }
 
 .most-searched-products-title p {
-    color: $color-main;
+    @include main-title-p;
+    @include font-sub;
 }
 
 .most-searched-products-item-img {
@@ -448,26 +497,78 @@ a {
     font-weight: 600;
     color: #222222;
     text-transform: capitalize;
-    
+
 }
 
 .most-searched-products .col-12 {
     margin-bottom: 20px;
 }
-.most-searched {text-align:center;}
+
+.most-searched {
+    text-align: center;
+}
 
 
 // FOOTER
+.footer-section {
+    background-color: $background-color-main;
+    padding-top: 50px;
+    padding-bottom:80px;
+}
+.footer-item-title {padding-bottom: 15px;}
+
+.insta-item li {
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+
+.footer-section .button {
+    background-color: red;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border: 1px solid;
+}
+
+.footer-bottom {
+    padding-top: 40px;
+}
+
+.footer-bottom p {
+    text-align: center;
+}
+
+.footer-item .menu-social {
+    margin-left: -20px;
+}
 
 
+
+// FOR MOBILE
+
+@media only screen and (max-device-width: 767px) {
+#main {margin-top:100px;}
+.top-menu {display:none;}
+.hot-deals  {margin-bottom:30px;}
+.hot-deals-item-text h4 {
+    font-size: 20px;
+    margin-left: 30px;
+}
+.hot-deals-item-text a {
+    margin-left:30px;
+    bottom: 25px;
+}
+.featured-products-section {margin-bottom:50px;} 
+.time-section {padding-bottom: 40px;}
+.time-details-part {width: 100%;}
+}
+.latest-products{margin-bottom:60px;}
+.top-brands {margin-bottom:60px;}
+.top-brands-inner {padding-left:0;}
 
 // FOR TABLET
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px)
-{
-
-}
-// FOR MOBILE
-@media only screen and (max-device-width: 767px)
-{
-
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .hot-deals-item-text{
+        left: 100px;
+    }
 }
