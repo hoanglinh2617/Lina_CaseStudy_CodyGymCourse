@@ -586,6 +586,7 @@ body {
   }
   .banner-text p {
     text-align: justify;
+    padding-right: 20px;
   }
   .btn-banner {
     text-align: center;
