@@ -47,7 +47,7 @@ body {
 
 .nav-item {
     text-transform: uppercase;
-   
+
 
 }
 
@@ -102,7 +102,7 @@ body {
 
 .banner-text h2 {
     font-size: 45px;
-     @include font-main;
+    @include font-main;
 }
 
 .banner-text p {
@@ -121,7 +121,7 @@ body {
 }
 
 .btn-banner {
-    
+
     padding: 15px;
     color: black;
     border: 1px solid white;
@@ -200,7 +200,7 @@ body {
 
 .featured-products-title {
     @include main-title;
-    
+
 }
 
 .featured-products-item img {
@@ -296,7 +296,7 @@ body {
 .time-title p {
     @include main-title-p;
     @include font-sub;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 
 .time-title a {
@@ -417,6 +417,7 @@ body {
 .latest-product {
     text-align: center;
 }
+
 //TOP BRANDS
 .top-brands {
     margin-top: 20px;
@@ -441,12 +442,13 @@ body {
 }
 
 .top-brands-inner {
-    padding-left: 10%;
+    padding-left: 16%;
     text-align: center;
 }
 
 .top-brands-item {
     padding: 10px 30px;
+        margin-right: 35px;
 }
 
 .top-brands-item img {
@@ -514,9 +516,12 @@ body {
 .footer-section {
     background-color: $background-color-main;
     padding-top: 50px;
-    padding-bottom:80px;
+    padding-bottom: 80px;
 }
-.footer-item-title {padding-bottom: 15px;}
+
+.footer-item-title {
+    padding-bottom: 15px;
+}
 
 .insta-item li {
     margin-right: 4px;
@@ -548,34 +553,72 @@ body {
 // FOR MOBILE
 
 @media only screen and (max-device-width: 767px) {
-#main {margin-top:100px;}
-.top-menu {display:none;}
-.home-banner {
-    padding-top:50px;
+    #main {
+        margin-top: 100px;
+    }
+
+    .top-menu {
+        display: none;
+    }
+
+    .home-banner {
+        padding-top: 50px;
+    }
+
+    .banner-text p {
+        text-align: justify;
+    }
+
+    .btn-banner {
+        text-align: center;
+    }
+
+    .banner-img {
+        padding-top: 40px;
+    }
+
+    .hot-deals {
+        margin-bottom: 30px;
+    }
+
+    .hot-deals-item-text h4 {
+        font-size: 20px;
+        margin-left: 30px;
+    }
+
+    .hot-deals-item-text a {
+        margin-left: 30px;
+        bottom: 25px;
+    }
+
+    .featured-products-section {
+        margin-bottom: 50px;
+    }
+
+    .time-section {
+        padding-bottom: 40px;
+    }
+
+    .time-details-part {
+        width: 100%;
+    }
 }
-.banner-text p{text-align: justify;}
-.btn-banner {text-align: center;}
-.banner-img {padding-top:40px;}
-.hot-deals  {margin-bottom:30px;}
-.hot-deals-item-text h4 {
-    font-size: 20px;
-    margin-left: 30px;
+
+.latest-products {
+    margin-bottom: 60px;
 }
-.hot-deals-item-text a {
-    margin-left:30px;
-    bottom: 25px;
+
+.top-brands {
+    margin-bottom: 60px;
 }
-.featured-products-section {margin-bottom:50px;} 
-.time-section {padding-bottom: 40px;}
-.time-details-part {width: 100%;}
+
+.top-brands-inner {
+    padding-left:0;
 }
-.latest-products{margin-bottom:60px;}
-.top-brands {margin-bottom:60px;}
-.top-brands-inner {padding-left:0;}
 
 // FOR TABLET
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    .hot-deals-item-text{
+    .hot-deals-item-text {
         left: 100px;
     }
 }

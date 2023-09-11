@@ -84,6 +84,7 @@ body {
   background-color: #e8f0f2;
   padding-bottom: 100px;
   padding-left: 20px;
+  margin-bottom: 80px;
 }
 
 .banner-text h2 {
@@ -469,12 +470,13 @@ body {
 }
 
 .top-brands-inner {
-  padding-left: 10%;
+  padding-left: 16%;
   text-align: center;
 }
 
 .top-brands-item {
   padding: 10px 30px;
+  margin-right: 35px;
 }
 
 .top-brands-item img {
